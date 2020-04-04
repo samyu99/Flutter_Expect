@@ -22,11 +22,7 @@ void main() {
       '/listcupertino': (context) => ListCupertino(),
       '/liststyles': (context) => ListStyle(),
     },
-    /*routes: <String, WidgetBuilder>{
-      '/list': (BuildContext context) => new List(),
-      '/listcupertino':(BuildContext context)=> new ListCupertino(),
-      */ /*'/sample': (BuildContext context) =>*/ /*
-    },*/
+  
   ));
 }
 
@@ -43,12 +39,14 @@ class _HomePageState extends State<HomePage> {
     color: Colors.pink[900],
   );
   final trailingicon = Icon(Icons.arrow_drop_down);
-  Animation animation;
+  
+  // this is for animation on card.
+  /*Animation animation;
   AnimationController animationController;
   PageController pageController;
-
+  
   @override
-  /* void initState() {
+   void initState() {
     super.initState();
     animationController = AnimationController(duration: Duration(seconds: 1));
 
