@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uidesign/Styles/AnimationList.dart';
 import 'package:uidesign/Styles/Color.dart';
 import 'Styles/Trypography.dart';
 void main() => runApp(MaterialApp(home: ListStyle()));
@@ -63,6 +64,31 @@ class _ListStyleState extends State<ListStyle> {
                       color: Colors.white70,
                       elevation: 0.2,
                       child: ListTile(
+                        title: Text('Animations',
+                          style: titlestyle,
+                        ),
+                        subtitle: Text(
+                          "Animations Features and Varieties",
+                          style: subtitlestyle,
+                        ),
+                        leading: Icon(Icons.art_track, color: Colors.pink[900]),
+                        onTap: () {
+                           Navigator.push(context, MaterialPageRoute(
+                            builder: (context) =>  AnimationList(),));
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    margin: cardmargin,
+                    decoration: boxstyle,
+                    child: Card(
+                      shape: cardShape,
+                      color: Colors.white70,
+                      elevation: 0.2,
+                      child: ListTile(
                         title: Text('Colors',
                           style: titlestyle,
                         ),
@@ -72,8 +98,8 @@ class _ListStyleState extends State<ListStyle> {
                         ),
                         leading: Icon(Icons.format_color_fill, color: Colors.pink[900]),
                         onTap: () {
-                           Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => Coloritem()));
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => Coloritem()));
                         },
                       ),
                     ),
@@ -105,32 +131,6 @@ class _ListStyleState extends State<ListStyle> {
                     ),
                   ),
                 ),
-                /*Center(
-                  child: Container(
-                    margin: cardmargin,
-                    decoration: boxstyle,
-                    child: Card(
-                      shape: cardShape,
-                      color: Colors.white70,
-                      elevation: 0.2,
-                      child: ListTile(
-                        title: Text('2D transformations',
-                          style: titlestyle,
-                        ),
-                        subtitle: Text(
-                          'Pan, zoom, rotate',
-                          style: subtitlestyle,
-                        ),
-                        leading: Icon(
-                            Icons.grid_on, color: Colors.pink[900]),
-                        onTap: () {
-                          *//* Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => NavigationList()));*//*
-                        },
-                      ),
-                    ),
-                  ),
-                ),*/
               ],
             ),
           ),

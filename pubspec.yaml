@@ -40,7 +40,10 @@ dependencies:
   direct_select: "^1.0.0"
   percent_indicator: "^2.1.1"
   simple_slider: "^0.0.1"
-
+  http: any
+  circle_wheel_scroll: ^0.0.1+1
+  cached_network_image: any
+  path_provider: any
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +63,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/
+    - assets/images/characters/
+    - assets/images/balls/
+    - assets/images/shoes/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

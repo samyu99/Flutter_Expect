@@ -6,6 +6,7 @@ import 'package:uidesign/SampleApps/NestedBottomBarTabBar.dart';
 import 'package:uidesign/SampleApps/home_page.dart';
 import 'package:uidesign/SampleApps/loginpage.dart';
 import 'package:uidesign/SampleApps/websocket.dart';
+import 'package:uidesign/fetch_data/main_fetch_data.dart';
 import 'AppBarAction.dart';
 import 'ListCupertino.dart';
 import 'ListStyles.dart';
@@ -22,7 +23,6 @@ void main() {
       '/listcupertino': (context) => ListCupertino(),
       '/liststyles': (context) => ListStyle(),
     },
-  
   ));
 }
 
@@ -39,20 +39,6 @@ class _HomePageState extends State<HomePage> {
     color: Colors.pink[900],
   );
   final trailingicon = Icon(Icons.arrow_drop_down);
-  
-  // this is for animation on card.
-  /*Animation animation;
-  AnimationController animationController;
-  PageController pageController;
-  
-  @override
-   void initState() {
-    super.initState();
-    animationController = AnimationController(duration: Duration(seconds: 1));
-
-    animation = Tween(begin: 0.0, end: -0.15).animate(
-        CurvedAnimation(parent: animationController, curve: Curves.ease));
-  }*/
 
   Widget topSlider = Builder(
     builder: (BuildContext context) {
@@ -98,7 +84,6 @@ class _HomePageState extends State<HomePage> {
                     break;
                   default:
                 }
-                //print("Image $index");
               },
             ),
           ),
@@ -175,7 +160,11 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.pink[900],
                       ),
                       onTap: () {
-                        Navigator.of(context).pushNamed('/list');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => List()),
+                        );
                       },
                     ),
                   ),
@@ -219,15 +208,19 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.white70,
                     child: new ListTile(
                       title: Text(
-                        'STYLES & OTHER',
+                        'Fetch JSON Data ',
                         style: titlestyle,
                       ),
                       leading: Icon(
-                        Icons.local_library,
+                        Icons.system_update_alt,
                         color: Colors.pink[900],
                       ),
                       onTap: () {
-                        Navigator.pushNamed(context, '/liststyles');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>   MainFetchData(),),
+                        );
                       },
                     ),
                   ),
@@ -243,7 +236,35 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.white70,
                     child: new ListTile(
                       title: Text(
-                        'SAMPLE APPS',
+                        'STYLES & OTHER',
+                        style: titlestyle,
+                      ),
+                      leading: Icon(
+                        Icons.local_library,
+                        color: Colors.pink[900],
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ListStyle()),
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Card(
+                    elevation: 3.0,
+                    margin:
+                    EdgeInsets.symmetric(vertical: 7.0, horizontal: 14.0),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                    color: Colors.white70,
+                    child: new ListTile(
+                      title: Text(
+                        'APPS CLONE',
                         style: titlestyle,
                       ),
                       leading: Icon(
@@ -261,71 +282,26 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        /*
-              AnimatedBuilder(
-                  animation: animationController,
-                  builder: (BuildContext context, Widget child) {
-                    return new Scaffold(
-                        body: new Center(
-                          child: new Stack(
-                            children: <Widget>[
-                              new Center(
-                                child: Container(
-                                  padding: EdgeInsets.all(20.0),
-                                  width: 350.0,
-                                  height:200.0,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15.0),
-                                  ),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    crossAxisAlignment: CrossAxisAlignment.center,
-                                    children: <Widget>[
-                                      ListView(
-                                        children:<Widget>[
-                                          ListTile(
-                                            title: Text("1"),
-                                          ),
-                                          ListTile(
-                                            title: Text("1"),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Center(
-                                child: GestureDetector(
-                                  child: Container(
-                                    alignment: Alignment.bottomCenter,
-                                    width: 350.0,
-                                    height: 200.0,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(15.0),
-                                      image: DecorationImage(
-                                        image: AssetImage("assets/images/back1.jpg"),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                    transform: Matrix4.translationValues(0.0, animation.value*width, 0.0),
-                                  ),
-                                  onTap: (){
-                                    animationController.forward();
-                                  },
-                                  onDoubleTap: (){
-                                    animationController.reverse();
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        )
-                    );
-                  }),
-            ],
-          ),
-        ),*/
+      ),
+    );
+  }
+}
+class MyMenuButton extends StatelessWidget {
+  final String title;
+  final VoidCallback actionTap;
+
+  MyMenuButton({this.title, this.actionTap});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: MaterialButton(
+        height: 50.0,
+        color: Colors.pink[900],
+        textColor: Colors.white,
+        child: new Text(title),
+        onPressed: actionTap,
       ),
     );
   }

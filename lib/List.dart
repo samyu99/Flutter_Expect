@@ -7,12 +7,15 @@ import 'package:uidesign/Material/PickerAndro.dart';
 import 'package:uidesign/Material/ProgressIndicator.dart';
 import 'package:uidesign/Material/SelectionControl.dart';
 import 'package:uidesign/Material/SnackBar.dart';
+import 'package:uidesign/Material/menu_navigations/header_navigation/main_header_navigation.dart';
+import 'package:uidesign/Material/menu_navigations/main_menu_navigations.dart';
 import 'Material/AppBarList.dart';
 import 'package:uidesign/Material/Carouseldemo.dart';
 import 'Material/Dropdownbutton.dart';
 import 'Material/NavigationList.dart';
 import 'package:uidesign/Material/ScrollChild.dart';
 import 'package:uidesign/Material/bottomNavigation.dart';
+import 'Material/collapsing_toolbar/main_collapsing_toolbar.dart';
 import 'Material/gridlist.dart';
 import 'package:uidesign/Material/listviewdemo.dart';
 import 'Material/cardviewdemo.dart';
@@ -85,7 +88,7 @@ class _ListState extends State<List> {
                   elevation: 0.2,
                   child: ListTile(
                     title: Text('AppBar',
-                        style: titlestyle,
+                      style: titlestyle,
                     ),
                     subtitle: Text(
                       "Basic AppBar, ActionWidgets, PopUpMenu, TabBar",
@@ -177,6 +180,51 @@ class _ListState extends State<List> {
             ),
             Center(
               child: Container(
+                decoration: boxstyle,
+                margin: cardmargin,
+                child: Card(
+                  shape: cardShape,
+                  color: Colors.white70,
+                  elevation: 0.2,
+                  child: ListTile(
+                    title: Text('Cards',
+                      style: titlestyle,),
+                    subtitle: Text('Display list tiles using cards',
+                      style: subtitlestyle,),
+                    leading: Icon(
+                        Icons.call_to_action, color: Colors.pink[900]),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Cardviewdemo()));
+                    },
+                  ),),
+              ),
+            ),
+
+            Center(
+              child: Container(
+                decoration: boxstyle,
+                margin: cardmargin,
+                child: Card(
+                  shape: cardShape,
+                  color: Colors.white70,
+                  elevation: 0.2,
+                  child: ListTile(
+                    title: Text('Carousel',
+                      style: titlestyle,),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Carouseldemo()));
+                    },
+                    subtitle: Text('Auto Carousel slider,Carousel pro',
+                      style: subtitlestyle,),
+                    leading: Icon(
+                        Icons.chrome_reader_mode, color: Colors.pink[900]),
+                  ),),
+              ),
+            ),
+            Center(
+              child: Container(
                 margin: cardmargin,
                 decoration: boxstyle,
                 child: Card(
@@ -184,17 +232,40 @@ class _ListState extends State<List> {
                   color: Colors.white70,
                   elevation: 0.2,
                   child: ListTile(
-                    title: Text('Navigation Drawer',
+                    title: Text('Collapsing Toolbar',
                       style: titlestyle,
                     ),
                     subtitle: Text(
-                      'Display simple navigation Drawer,userAccount drawer',
+                      "ToolBar using SilverAppBar",
                       style: subtitlestyle,
                     ),
-                    leading: Icon(Icons.menu, color: Colors.pink[900]),
+                    leading: Icon(Icons.swap_vert, color: Colors.pink[900]),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => NavigationList()));
+                        builder: (context) => MainCollapsingToolbar(),));
+                    },
+                  ),
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                decoration: boxstyle,
+                margin: cardmargin,
+                child: Card(
+                  shape: cardShape,
+                  color: Colors.white70,
+                  elevation: 0.2,
+                  child: ListTile(
+                    title: Text('DropDown Button',
+                      style: titlestyle,),
+                    subtitle: Text('DropDown Button showing list of items',
+                      style: subtitlestyle,),
+                    leading: Icon(Icons.arrow_drop_down_circle,
+                        color: Colors.pink[900]),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Dropdowndemo()));
                     },
                   ),
                 ),
@@ -250,26 +321,56 @@ class _ListState extends State<List> {
             ),
             Center(
               child: Container(
-                decoration: boxstyle,
                 margin: cardmargin,
+                decoration: boxstyle,
                 child: Card(
                   shape: cardShape,
                   color: Colors.white70,
                   elevation: 0.2,
                   child: ListTile(
-                    title: Text('Cards',
-                      style: titlestyle,),
-                    subtitle: Text('Display list tiles using cards',
-                      style: subtitlestyle,),
-                    leading: Icon(
-                        Icons.call_to_action, color: Colors.pink[900]),
+                    title: Text('Menu Navigations',
+                      style: titlestyle,
+                    ),
+                    subtitle: Text(
+                      "Header Navigation",
+                      style: subtitlestyle,
+                    ),
+                    leading: Icon(Icons.navigation, color: Colors.pink[900]),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Cardviewdemo()));
+                        builder: (context) => MainMenuNavigations()));
                     },
-                  ),),
+                  ),
+                ),
               ),
             ),
+            Center(
+              child: Container(
+                margin: cardmargin,
+                decoration: boxstyle,
+                child: Card(
+                  shape: cardShape,
+                  color: Colors.white70,
+                  elevation: 0.2,
+                  child: ListTile(
+                    title: Text('Navigation Drawer',
+                      style: titlestyle,
+                    ),
+                    subtitle: Text(
+                      'Display simple navigation Drawer,userAccount drawer',
+                      style: subtitlestyle,
+                    ),
+                    leading: Icon(Icons.menu, color: Colors.pink[900]),
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => NavigationList()));
+                    },
+                  ),
+                ),
+              ),
+            ),
+
+
             Center(
               child: Container(
                 margin: cardmargin,
@@ -320,31 +421,6 @@ class _ListState extends State<List> {
                 ),
               ),
             ),
-            /*Center(
-              child: Container(
-                margin: cardmargin,
-                decoration: boxstyle,
-                child: Card(
-                  shape: cardShape,
-                  color: Colors.white70,
-                  elevation: 0.2,
-                  child: ListTile(
-                    title: Text('Selection Controls',
-                      style: titlestyle,
-                    ),
-                    subtitle: Text(
-                      'Checkboxes,radio buttons and switches',
-                      style: subtitlestyle,
-                    ),
-                    leading: Icon(Icons.check_box, color: Colors.pink[900]),
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => SelectionControlsDemo()));
-                    },
-                  ),
-                ),
-              ),
-            ),*/
             Center(
               child: Container(
                 decoration: boxstyle,
@@ -400,51 +476,6 @@ class _ListState extends State<List> {
                   color: Colors.white70,
                   elevation: 0.2,
                   child: ListTile(
-                    title: Text('DropDown Button',
-                      style: titlestyle,),
-                    subtitle: Text('DropDown Button showing list of items',
-                      style: subtitlestyle,),
-                    leading: Icon(Icons.arrow_drop_down_circle,
-                        color: Colors.pink[900]),
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Dropdowndemo()));
-                    },
-                  ),
-                ),
-              ),
-            ),
-            Center(
-              child: Container(
-                decoration: boxstyle,
-                margin: cardmargin,
-                child: Card(
-                  shape: cardShape,
-                  color: Colors.white70,
-                  elevation: 0.2,
-                  child: ListTile(
-                    title: Text('Carousel',
-                      style: titlestyle,),
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) => Carouseldemo()));
-                    },
-                    subtitle: Text('Auto Carousel slider,Carousel pro',
-                      style: subtitlestyle,),
-                    leading: Icon(
-                        Icons.chrome_reader_mode, color: Colors.pink[900]),
-                  ),),
-              ),
-            ),
-            Center(
-              child: Container(
-                decoration: boxstyle,
-                margin: cardmargin,
-                child: Card(
-                  shape: cardShape,
-                  color: Colors.white70,
-                  elevation: 0.2,
-                  child: ListTile(
                     title: Text('Sliding List',
                       style: titlestyle,
                     ),
@@ -458,7 +489,6 @@ class _ListState extends State<List> {
                   ),),
               ),
             ),
-
             Center(
               child: Container(
                 decoration: boxstyle,

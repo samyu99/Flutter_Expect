@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uidesign/SampleApps/NestedBottomBarTabBar.dart';
+import 'package:uidesign/SampleApps/app_clone/main_apps_clone.dart';
 import 'package:uidesign/SampleApps/home_page.dart';
 import 'package:uidesign/SampleApps/loginpage.dart';
 import 'package:uidesign/SampleApps/websocket.dart';
@@ -150,6 +151,31 @@ class SampleAppList extends StatelessWidget {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => NestedBottomBarTabBarDemo()));
+                    },
+                  ),
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                margin: cardmargin,
+                decoration: boxstyle,
+                child: Card(
+                  shape: cardShape,
+                  color: Colors.white70,
+                  elevation: 0.2,
+                  child: ListTile(
+                    title: Text('Apps Clone List',
+                      style: titlestyle,
+                    ),
+                    subtitle: Text(
+                      'Android Messages Page, Twitter Profile Page, Movies Concept, Photo Concept, Sports Store, Shoes Store, Album Flow',
+                      style: subtitlestyle,
+                    ),
+                    trailing: trailingicon,
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) =>   MainAppsClone(),));
                     },
                   ),
                 ),

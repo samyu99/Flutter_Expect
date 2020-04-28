@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:uidesign/Material/persistent_tabbar/main_persistent_tabbar.dart';
 import 'PopUpMenu.dart';
 import 'Appbar.dart';
 import '../ActionWidgets.dart';
 import 'TabBar.dart';
+import 'appbar_sliverappbar/main_appbar_sliverappbar.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -51,37 +53,6 @@ class AppbarList extends StatelessWidget {
               },
             ),
           ),
-          /* AppBar(
-            backgroundColor: Colors.white,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back),
-              color: Colors.pink[900],
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            actions: <Widget>[
-              IconButton(
-                icon: Icon(Icons.error),
-                color: Colors.pink[900],
-                onPressed: () {
-
-                },
-              ),
-              IconButton(
-                icon: Icon(Icons.code),
-                color: Colors.pink[900],
-                onPressed: () {},
-              ),
-              IconButton(
-                icon: Icon(Icons.library_books),
-                color: Colors.pink[900],
-                onPressed: () {
-
-                },
-              ),
-            ],
-          ),*/
           body:
           Container(
             margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 18.0),
@@ -107,6 +78,31 @@ class AppbarList extends StatelessWidget {
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                               builder: (context) => Appbar()));
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    margin: cardmargin,
+                    decoration: boxstyle,
+                    child: Card(
+                      shape: cardShape,
+                      color: Colors.white70,
+                      elevation: 0.2,
+                      child: ListTile(
+                        title: Text('Custom AppBar & SilverAppBar',
+                          style: titlestyle,
+                        ),
+                        subtitle: Text('AppBar & SliverAppBar',
+                          style: subtitlestyle,
+                        ),
+                        trailing: Icon(Icons.arrow_forward_ios),
+                        /*leading: Icon(Icons.apps, color: Colors.pink[900]),*/
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => MainAppBarSliverAppBar()));
                         },
                       ),
                     ),
@@ -181,6 +177,29 @@ class AppbarList extends StatelessWidget {
                         onTap: () {
                           Navigator.push(context, MaterialPageRoute(
                               builder: (context) => Tabbar()));
+                        },
+                        trailing: Icon(Icons.arrow_forward_ios),
+                      ),),
+                  ),
+                ),
+                Center(
+                  child: Container(
+                    decoration: boxstyle,
+                    margin: cardmargin,
+                    child: Card(
+                      shape: cardShape,
+                      color: Colors.white70,
+                      elevation: 0.2,
+                      child: ListTile(
+                        title: Text('Persistent Tab Bar',
+                          style: titlestyle,
+                        ),
+                        subtitle: Text('TabBar with multiple action and icons ',
+                          style: subtitlestyle,
+                        ),
+                        onTap: () {
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => MainPersistentTabBar(),));
                         },
                         trailing: Icon(Icons.arrow_forward_ios),
                       ),),

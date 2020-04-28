@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uidesign/Material/scroll_controller/main_scroll_controller.dart';
 import 'Verticalscroll.dart';
 import 'Horizontalscroll.dart';
 
@@ -50,6 +51,33 @@ class ScrollChild extends StatelessWidget {
       ),
       body: ListView(
         children: <Widget>[
+          Center(
+            child: Container(
+              margin: cardmargin,
+              decoration: boxstyle,
+              child: Card(
+                shape: cardShape,
+                color: Colors.white70,
+                elevation: 0.2,
+                child: ListTile(
+                  title: Text("Scroll Controller & Notification",
+                    style: titlestyle,
+                  ),
+                  subtitle: Text(
+                    "Scroll Limit Reached, Scroll Movement,\nScroll Status, Scroll Sync",
+                    style: subtitlestyle,
+                  ),
+                  /*leading: Icon(Icons.apps, color: Colors.pink[900]),*/
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) =>  MainScrollController(),));
+                  },
+                  trailing: Icon(Icons.arrow_forward_ios),
+
+                ),
+              ),
+            ),
+          ),
           Center(
             child: Container(
               margin: cardmargin,
