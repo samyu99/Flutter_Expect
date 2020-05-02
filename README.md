@@ -73,7 +73,7 @@ Flutter_Expert app is a free and open source project. Any contributions are welc
 * Thanks [Google Fonts](https://fonts.google.com/) for the app fonts.
 
 
-* Thanks FontAwesome (https://fontawesome.com/) for icons.
+* Thanks [FontAwesome](https://fontawesome.com/) for icons.
 
 
 
